@@ -400,7 +400,8 @@ namespace Kyrca4
 
         private void изменитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            string s = null;
+            s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             if (comboBox1.SelectedIndex == 0)
             {
                 Form7 f7 = new Form7(s);

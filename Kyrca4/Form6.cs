@@ -17,18 +17,18 @@ namespace Kyrca4
     {
         string connecionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PoliceDB;Integrated Security=True";
         bool vol = true;
-        int id;
+        string id;
         public Form6(string s)
         {
             InitializeComponent();
-            id = Convert.ToInt32(s);
-            if (s != null)
+            id = s;
+            if (id != null)
             {
                 vol = false;
                 button2.Text = "Изменить";
                 using (SqlConnection connection = new SqlConnection(connecionString))
                 {
-                    SqlCommand command = new SqlCommand("select * from Звания WHERE id = " + s, connection);
+                    SqlCommand command = new SqlCommand("select * from Звания WHERE id = " + id, connection);
                     connection.Open();
                     SqlDataReader read = command.ExecuteReader();
                     while (read.Read())
@@ -58,7 +58,7 @@ namespace Kyrca4
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (vol = false)
+            if (vol == true)
             {
                 try
                 {

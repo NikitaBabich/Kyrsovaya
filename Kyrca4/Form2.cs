@@ -16,18 +16,18 @@ namespace Kyrca4
     {
         string connecionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PoliceDB;Integrated Security=True";
         bool vol=true;
-        int id;
+        string id;
         public Form2(string s)
         {
             InitializeComponent();
-            id = Convert.ToInt32(s);
-            if (s != null)
+            id = s;
+            if (id != null)
             {
                 vol = false;
                 button1.Text = "Изменить";
                 using (SqlConnection connection = new SqlConnection(connecionString))
                 {
-                    SqlCommand command = new SqlCommand("select * from Сотрудники WHERE id = " + s, connection);
+                    SqlCommand command = new SqlCommand("select * from Сотрудники WHERE id = " + id, connection);
                     connection.Open();
                     SqlDataReader read = command.ExecuteReader();
                     while (read.Read())
@@ -73,7 +73,7 @@ namespace Kyrca4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (vol=false)
+            if (vol==true)
             {
                 try
                 {
@@ -127,7 +127,7 @@ namespace Kyrca4
                         dataGridView1.DataSource = ds.Tables["Сотрудники"];
                     }
                     this.Close();
-                    MessageBox.Show("Запись обновлена", "обновлено");
+                    MessageBox.Show("Запись обновлена", "Обновлено");
                 }
                 catch (Exception)
                 {
