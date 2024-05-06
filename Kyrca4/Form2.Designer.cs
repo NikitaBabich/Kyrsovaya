@@ -46,22 +46,22 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.званияBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.policeDBDataSet = new Kyrca4.PoliceDBDataSet();
             this.label10 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.городаBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.policeDBDataSet = new Kyrca4.PoliceDBDataSet();
-            this.городаBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.городаTableAdapter = new Kyrca4.PoliceDBDataSetTableAdapters.ГородаTableAdapter();
-            this.званияBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.званияTableAdapter = new Kyrca4.PoliceDBDataSetTableAdapters.ЗванияTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.policeDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.городаBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.званияBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.policeDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.городаBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -234,6 +234,16 @@
             this.comboBox2.TabIndex = 21;
             this.comboBox2.ValueMember = "id";
             // 
+            // званияBindingSource
+            // 
+            this.званияBindingSource.DataMember = "Звания";
+            this.званияBindingSource.DataSource = this.policeDBDataSet;
+            // 
+            // policeDBDataSet
+            // 
+            this.policeDBDataSet.DataSetName = "PoliceDBDataSet";
+            this.policeDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -283,6 +293,11 @@
             this.comboBox1.TabIndex = 26;
             this.comboBox1.ValueMember = "id";
             // 
+            // городаBindingSource
+            // 
+            this.городаBindingSource.DataMember = "Города";
+            this.городаBindingSource.DataSource = this.policeDBDataSet;
+            // 
             // maskedTextBox1
             // 
             this.maskedTextBox1.Location = new System.Drawing.Point(539, 420);
@@ -308,24 +323,9 @@
             this.maskedTextBox3.Size = new System.Drawing.Size(258, 22);
             this.maskedTextBox3.TabIndex = 30;
             // 
-            // policeDBDataSet
-            // 
-            this.policeDBDataSet.DataSetName = "PoliceDBDataSet";
-            this.policeDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // городаBindingSource
-            // 
-            this.городаBindingSource.DataMember = "Города";
-            this.городаBindingSource.DataSource = this.policeDBDataSet;
-            // 
             // городаTableAdapter
             // 
             this.городаTableAdapter.ClearBeforeFill = true;
-            // 
-            // званияBindingSource
-            // 
-            this.званияBindingSource.DataMember = "Звания";
-            this.званияBindingSource.DataSource = this.policeDBDataSet;
             // 
             // званияTableAdapter
             // 
@@ -365,10 +365,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Сотрудники";
             this.Load += new System.EventHandler(this.Form2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.policeDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.городаBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.званияBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.policeDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.городаBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
