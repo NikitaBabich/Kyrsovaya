@@ -35,6 +35,8 @@
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.городаBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.policeDBDataSet = new Kyrca4.PoliceDBDataSet();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -53,12 +55,10 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
-            this.policeDBDataSet = new Kyrca4.PoliceDBDataSet();
-            this.городаBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.городаTableAdapter = new Kyrca4.PoliceDBDataSetTableAdapters.ГородаTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.policeDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.городаBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.policeDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -85,7 +85,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1369, 456);
+            this.button2.Location = new System.Drawing.Point(1369, 485);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
@@ -124,6 +124,16 @@
             this.comboBox1.Size = new System.Drawing.Size(257, 24);
             this.comboBox1.TabIndex = 49;
             this.comboBox1.ValueMember = "id";
+            // 
+            // городаBindingSource
+            // 
+            this.городаBindingSource.DataMember = "Города";
+            this.городаBindingSource.DataSource = this.policeDBDataSet;
+            // 
+            // policeDBDataSet
+            // 
+            this.policeDBDataSet.DataSetName = "PoliceDBDataSet";
+            this.policeDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label8
             // 
@@ -297,16 +307,6 @@
             this.maskedTextBox4.TabIndex = 64;
             this.maskedTextBox4.ValidatingType = typeof(System.DateTime);
             // 
-            // policeDBDataSet
-            // 
-            this.policeDBDataSet.DataSetName = "PoliceDBDataSet";
-            this.policeDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // городаBindingSource
-            // 
-            this.городаBindingSource.DataMember = "Города";
-            this.городаBindingSource.DataSource = this.policeDBDataSet;
-            // 
             // городаTableAdapter
             // 
             this.городаTableAdapter.ClearBeforeFill = true;
@@ -346,8 +346,8 @@
             this.Text = "Пострадавшие";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.policeDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.городаBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.policeDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -36,8 +36,10 @@ namespace Kyrca4
                 dataGridView1.Columns[0].Visible = false;
             }
         }
-        public Form1()
+        string tfio;
+        public Form1(string vol, string fio)
         {
+            tfio = fio;
             InitializeComponent();
             comboBox1.SelectedIndex = 0;
         }
@@ -395,7 +397,9 @@ namespace Kyrca4
         //Закрыть форму
         private void button4_Click(object sender, EventArgs e)
         {
+            Program.Context.MainForm = new Authorization();
             this.Close();
+            Program.Context.MainForm.Show();
         }
 
         private void изменитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -432,6 +436,11 @@ namespace Kyrca4
                 Form6 f6 = new Form6(s);
                 f6.Show();
             }
+        }
+
+        private void моиДанныеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(tfio + "\nПрава доступа: ", "Сотрудник");
         }
     }
 }
