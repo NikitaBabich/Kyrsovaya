@@ -37,10 +37,29 @@ namespace Kyrca4
             }
         }
         string tfio;
+        string tvol;
+        string priv;
         public Form1(string vol, string fio)
         {
             tfio = fio;
+            tvol = vol;
             InitializeComponent();
+            if (tvol == "1")
+            {
+                priv = "Все возможности";
+            }
+            if (tvol == "2")
+            {
+                priv = "Добавление и изменение данных";
+                button6.Enabled = false;
+            }
+            if (tvol == "3")
+            {
+                priv = "Чтение";
+                изменитьДанныеToolStripMenuItem.Enabled = false;
+                button1.Enabled = false;
+                button6.Enabled = false;
+            }
             comboBox1.SelectedIndex = 0;
         }
 
@@ -355,7 +374,9 @@ namespace Kyrca4
         }
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Program.Context.MainForm = new Authorization();
             this.Close();
+            Program.Context.MainForm.Show();
         }
 
         //Значение кнопки добавить
@@ -440,7 +461,7 @@ namespace Kyrca4
 
         private void моиДанныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(tfio + "\nПрава доступа: ", "Сотрудник");
+            MessageBox.Show(tfio + "\nПрава доступа: "+priv, "Сотрудник");
         }
     }
 }

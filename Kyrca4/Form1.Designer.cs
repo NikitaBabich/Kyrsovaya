@@ -41,6 +41,7 @@
             this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.updateLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.моиДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.делаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +53,6 @@
             this.изменитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.отчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.моиДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -190,21 +190,28 @@
             // справкаToolStripMenuItem1
             // 
             this.справкаToolStripMenuItem1.Name = "справкаToolStripMenuItem1";
-            this.справкаToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.справкаToolStripMenuItem1.Size = new System.Drawing.Size(180, 26);
             this.справкаToolStripMenuItem1.Text = "Справка";
             this.справкаToolStripMenuItem1.Click += new System.EventHandler(this.справкаToolStripMenuItem1_Click_1);
             // 
             // updateLogToolStripMenuItem
             // 
             this.updateLogToolStripMenuItem.Name = "updateLogToolStripMenuItem";
-            this.updateLogToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.updateLogToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.updateLogToolStripMenuItem.Text = "UpdateLog";
             this.updateLogToolStripMenuItem.Click += new System.EventHandler(this.updateLogToolStripMenuItem_Click);
+            // 
+            // моиДанныеToolStripMenuItem
+            // 
+            this.моиДанныеToolStripMenuItem.Name = "моиДанныеToolStripMenuItem";
+            this.моиДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.моиДанныеToolStripMenuItem.Text = "Мои данные";
+            this.моиДанныеToolStripMenuItem.Click += new System.EventHandler(this.моиДанныеToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -288,13 +295,6 @@
             // 
             this.отчетToolStripMenuItem.Name = "отчетToolStripMenuItem";
             this.отчетToolStripMenuItem.Size = new System.Drawing.Size(14, 24);
-            // 
-            // моиДанныеToolStripMenuItem
-            // 
-            this.моиДанныеToolStripMenuItem.Name = "моиДанныеToolStripMenuItem";
-            this.моиДанныеToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.моиДанныеToolStripMenuItem.Text = "Мои данные";
-            this.моиДанныеToolStripMenuItem.Click += new System.EventHandler(this.моиДанныеToolStripMenuItem_Click);
             // 
             // Form1
             // 
