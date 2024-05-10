@@ -365,12 +365,12 @@ namespace Kyrca4
         //Для меню справки
         private void справкаToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show("Учет дел отделения полиции \n\nВерсия: 2.2 \n\nСДЕЛАЙ РЕДАКТИРОВАНИЕ", "Справка");
+            MessageBox.Show("Учет дел отделения полиции \n\nВерсия: 2.3 \n\nНадо отчеты", "Справка");
         }
 
         private void updateLogToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("30.04.24 \nПроцесс заполнения отчета 2 часть", "Log");
+            MessageBox.Show("10.05.24 \nПроцесс заполнения отчета 2 часть", "Log");
         }
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
