@@ -258,6 +258,7 @@ namespace Kyrca4
                     }
                     sql = Dela;
                     Using(sql);
+                    MessageBox.Show("Запись удалена", "Удаление");
                 }
             }
             if (comboBox1.SelectedIndex == 1)
@@ -277,6 +278,7 @@ namespace Kyrca4
                     }
                     sql = Sotr;
                     Using(sql);
+                    MessageBox.Show("Запись удалена", "Удаление");
                 }
             }
             if (comboBox1.SelectedIndex == 2)
@@ -296,6 +298,7 @@ namespace Kyrca4
                     }
                     sql = Postr;
                     Using(sql);
+                    MessageBox.Show("Запись удалена", "Удаление");
                 }     
             }
             if (comboBox1.SelectedIndex == 3)
@@ -315,6 +318,7 @@ namespace Kyrca4
                     }
                     sql = Podozr;
                     Using(sql);
+                    MessageBox.Show("Запись удалена", "Удаление");
                 }
             }
             if (comboBox1.SelectedIndex == 4)
@@ -334,6 +338,7 @@ namespace Kyrca4
                     }
                     sql = Prest;
                     Using(sql);
+                    MessageBox.Show("Запись удалена", "Удаление");
                 }
             }
             if (comboBox1.SelectedIndex == 5)
@@ -353,9 +358,9 @@ namespace Kyrca4
                     }
                     sql = Zvan;
                     Using(sql);
+                    MessageBox.Show("Запись удалена", "Удаление");
                 }
             }
-            MessageBox.Show("Запись удалена", "Удаление");
         }
         //Момент выбора таблиц: кнопки
         private void button2_Click_1(object sender, EventArgs e)
