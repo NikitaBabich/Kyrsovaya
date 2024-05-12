@@ -17,9 +17,9 @@ namespace Kyrca4
     {
         //Запросы
         string connecionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PoliceDB;Integrated Security=True";
-        string Dela = "SELECT Дела.id,Дела.Код_дела,Виды_преступлений.Статья, Сотрудники.Фамилия, Пострадавшие.Фамилия,Подозреваемые.Фамилия FROM Дела JOIN Виды_преступлений on Виды_преступлений.id=Дела.Статья JOIN Сотрудники on Сотрудники.id=Дела.Сотрудник JOIN Пострадавшие on Пострадавшие.id=Дела.Пострадавший JOIN Подозреваемые on Подозреваемые.id=Дела.Подозреваемый";
+        string Dela = "SELECT Дела.id,Дела.Код_дела,Виды_преступлений.Статья, Дела.Дата_открытия_дела, Дела.Дата_закрытия_дела, Сотрудники.Фамилия, Пострадавшие.Фамилия,Подозреваемые.Фамилия FROM Дела JOIN Виды_преступлений on Виды_преступлений.id=Дела.Статья JOIN Сотрудники on Сотрудники.id=Дела.Сотрудник JOIN Пострадавшие on Пострадавшие.id=Дела.Пострадавший JOIN Подозреваемые on Подозреваемые.id=Дела.Подозреваемый";
         string Sotr = "SELECT Сотрудники.id,Сотрудники.Фамилия, Сотрудники.Имя, Сотрудники.Отчество, Звания.Наименование, Города.Название_города, Сотрудники.Адрес, Сотрудники.Дата_рождения, Сотрудники.Номер_телефона, Сотрудники.Паспортные_данные, Пол.Пол FROM Сотрудники JOIN Звания on Звания.id=Сотрудники.Звание JOIN Пол on Пол.id=Сотрудники.Пол JOIN Города on Города.id=Сотрудники.Город";
-        string Postr = "SELECT Пострадавшие.id,Пострадавшие.Фамилия,Пострадавшие.Имя,Пострадавшие.Отчество,Города.Название_города,Пострадавшие.Адрес,Пострадавшие.Дата_рождения,Пострадавшие.Номер_телефона,Пострадавшие.Паспортные_данные,Пострадавшие.Дата_обращения,Пол.Пол FROM Пострадавшие JOIN Пол on Пол.id=Пострадавшие.Пол JOIN Города on Города.id=Пострадавшие.Город";
+        string Postr = "SELECT Пострадавшие.id,Пострадавшие.Фамилия,Пострадавшие.Имя,Пострадавшие.Отчество,Города.Название_города,Пострадавшие.Адрес,Пострадавшие.Дата_рождения,Пострадавшие.Номер_телефона,Пострадавшие.Паспортные_данные,Пол.Пол FROM Пострадавшие JOIN Пол on Пол.id=Пострадавшие.Пол JOIN Города on Города.id=Пострадавшие.Город";
         string Podozr = "SELECT Подозреваемые.id,Подозреваемые.Фамилия,Подозреваемые.Имя,Подозреваемые.Отчество,Города.Название_города, Подозреваемые.Адрес,Подозреваемые.Дата_рождения,Подозреваемые.Номер_телефона,Подозреваемые.Паспортные_данные, Пол.Пол FROM Подозреваемые JOIN Пол on Пол.id=Подозреваемые.Пол JOIN Города on Города.id=Подозреваемые.Город";
         string Prest = "SELECT Виды_преступлений.id,Виды_преступлений.Статья,Виды_преступлений.Наименование,Виды_преступлений.Наказание FROM Виды_преступлений";
         string Zvan = "SELECT Звания.id,Звания.Наименование,Звания.Оклад,Звания.Обязанности,Звания.Требования FROM Звания";
@@ -243,93 +243,117 @@ namespace Kyrca4
         {
             if (comboBox1.SelectedIndex == 0)
             {
-                string s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                string sql = "DELETE FROM Дела WHERE id = " + s;
-                using (SqlConnection connection = new SqlConnection(connecionString))
+                DialogResult dr = MessageBox.Show("Удалить запись?", "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (dr == DialogResult.OK)
                 {
-                    connection.Open();
-                    SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    dataGridView1.DataSource = ds.Tables["Дела"];
+                    string s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    string sql = "DELETE FROM Дела WHERE id = " + s;
+                    using (SqlConnection connection = new SqlConnection(connecionString))
+                    {
+                        connection.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView1.DataSource = ds.Tables["Дела"];
+                    }
+                    sql = Dela;
+                    Using(sql);
                 }
-                sql = Dela;
-                Using(sql);
             }
             if (comboBox1.SelectedIndex == 1)
             {
-                string s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                string sql = "DELETE FROM Сотрудники WHERE id = " + s;
-                using (SqlConnection connection = new SqlConnection(connecionString))
+                DialogResult dr = MessageBox.Show("Удалить запись?", "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (dr == DialogResult.OK)
                 {
-                    connection.Open();
-                    SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    dataGridView1.DataSource = ds.Tables["Сотрудники"];
+                    string s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    string sql = "DELETE FROM Сотрудники WHERE id = " + s;
+                    using (SqlConnection connection = new SqlConnection(connecionString))
+                    {
+                        connection.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView1.DataSource = ds.Tables["Сотрудники"];
+                    }
+                    sql = Sotr;
+                    Using(sql);
                 }
-                sql = Sotr;
-                Using(sql);
             }
             if (comboBox1.SelectedIndex == 2)
             {
-                string s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                string sql = "DELETE FROM Пострадавшие WHERE id =" + s;
-                using (SqlConnection connection = new SqlConnection(connecionString))
+                DialogResult dr = MessageBox.Show("Удалить запись?", "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (dr == DialogResult.OK)
                 {
-                    connection.Open();
-                    SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    dataGridView1.DataSource = ds.Tables["Пострадавшие"];
-                }
-                sql = Postr;
-                Using(sql);
+                    string s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    string sql = "DELETE FROM Пострадавшие WHERE id =" + s;
+                    using (SqlConnection connection = new SqlConnection(connecionString))
+                    {
+                        connection.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView1.DataSource = ds.Tables["Пострадавшие"];
+                    }
+                    sql = Postr;
+                    Using(sql);
+                }     
             }
             if (comboBox1.SelectedIndex == 3)
             {
-                string s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                string sql = "DELETE FROM Подозреваемые WHERE id = " + s;
-                using (SqlConnection connection = new SqlConnection(connecionString))
+                DialogResult dr = MessageBox.Show("Удалить запись?", "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (dr == DialogResult.OK)
                 {
-                    connection.Open();
-                    SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    dataGridView1.DataSource = ds.Tables["Преступники"];
+                    string s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    string sql = "DELETE FROM Подозреваемые WHERE id = " + s;
+                    using (SqlConnection connection = new SqlConnection(connecionString))
+                    {
+                        connection.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView1.DataSource = ds.Tables["Преступники"];
+                    }
+                    sql = Podozr;
+                    Using(sql);
                 }
-                sql = Podozr;
-                Using(sql);
             }
             if (comboBox1.SelectedIndex == 4)
             {
-                string s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                string sql = "DELETE FROM Виды_преступлений WHERE id = " + s;
-                using (SqlConnection connection = new SqlConnection(connecionString))
+                DialogResult dr = MessageBox.Show("Удалить запись?", "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (dr == DialogResult.OK)
                 {
-                    connection.Open();
-                    SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    dataGridView1.DataSource = ds.Tables["Виды_преступлений"];
+                    string s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    string sql = "DELETE FROM Виды_преступлений WHERE id = " + s;
+                    using (SqlConnection connection = new SqlConnection(connecionString))
+                    {
+                        connection.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView1.DataSource = ds.Tables["Виды_преступлений"];
+                    }
+                    sql = Prest;
+                    Using(sql);
                 }
-                sql = Prest;
-                Using(sql);
             }
             if (comboBox1.SelectedIndex == 5)
             {
-                string s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                string sql = "DELETE FROM Звания WHERE id = " + s;
-                using (SqlConnection connection = new SqlConnection(connecionString))
+                DialogResult dr = MessageBox.Show("Удалить запись?", "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (dr == DialogResult.OK)
                 {
-                    connection.Open();
-                    SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    dataGridView1.DataSource = ds.Tables["Звания"];
+                    string s = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    string sql = "DELETE FROM Звания WHERE id = " + s;
+                    using (SqlConnection connection = new SqlConnection(connecionString))
+                    {
+                        connection.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView1.DataSource = ds.Tables["Звания"];
+                    }
+                    sql = Zvan;
+                    Using(sql);
                 }
-                sql = Zvan;
-                Using(sql);
             }
             MessageBox.Show("Запись удалена", "Удаление");
         }

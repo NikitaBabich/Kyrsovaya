@@ -38,7 +38,6 @@ namespace Kyrca4
                         maskedTextBox3.Text = (read["Номер_телефона"].ToString());
                         maskedTextBox4.Text = (read["Паспортные_данные"].ToString());
                         maskedTextBox1.Text = (read["Дата_рождения"].ToString());
-                        maskedTextBox2.Text = (read["Дата_обращения"].ToString());
                         string pol = (read["Пол"].ToString());
                         if (pol == "1")
                         {
@@ -58,7 +57,7 @@ namespace Kyrca4
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "policeDBDataSet.Города". При необходимости она может быть перемещена или удалена.
             this.городаTableAdapter.Fill(this.policeDBDataSet.Города);
-            string sql = "SELECT Пострадавшие.Фамилия,Пострадавшие.Имя,Пострадавшие.Отчество,Города.Название_города,Пострадавшие.Адрес,Пострадавшие.Дата_рождения,Пострадавшие.Номер_телефона,Пострадавшие.Паспортные_данные,Пострадавшие.Дата_обращения,Пол.Пол FROM Пострадавшие JOIN Пол on Пол.id=Пострадавшие.Пол JOIN Города on Города.id=Пострадавшие.Город";
+            string sql = "SELECT Пострадавшие.Фамилия,Пострадавшие.Имя,Пострадавшие.Отчество,Города.Название_города,Пострадавшие.Адрес,Пострадавшие.Дата_рождения,Пострадавшие.Номер_телефона,Пострадавшие.Паспортные_данные,Пол.Пол FROM Пострадавшие JOIN Пол on Пол.id=Пострадавшие.Пол JOIN Города on Города.id=Пострадавшие.Город";
             using (SqlConnection connection = new SqlConnection(connecionString))
             {
                 connection.Open();
@@ -84,7 +83,7 @@ namespace Kyrca4
                     {
                         pol = 2;
                     }
-                    string sql = "Insert into Пострадавшие (Фамилия,Имя,Отчество,Город,Адрес,Дата_рождения,Номер_телефона,Паспортные_данные,Дата_обращения,Пол) Values (N'" + textBox1.Text + "',N'" + textBox2.Text + "',N'" + textBox3.Text + "', N'" + comboBox1.SelectedValue + "',N'" + textBox4.Text + "',N'" + maskedTextBox1.Text + "',N'" + maskedTextBox3.Text + "',N'" + maskedTextBox4.Text + "',N'" + maskedTextBox2.Text + "',N'" + pol + "')";
+                    string sql = "Insert into Пострадавшие (Фамилия,Имя,Отчество,Город,Адрес,Дата_рождения,Номер_телефона,Паспортные_данные,Пол) Values (N'" + textBox1.Text + "',N'" + textBox2.Text + "',N'" + textBox3.Text + "', N'" + comboBox1.SelectedValue + "',N'" + textBox4.Text + "',N'" + maskedTextBox1.Text + "',N'" + maskedTextBox3.Text + "',N'" + maskedTextBox4.Text + "',N'" + pol + "')";
                     using (SqlConnection connection = new SqlConnection(connecionString))
                     {
                         connection.Open();
@@ -115,7 +114,7 @@ namespace Kyrca4
                     {
                         pol = "2";
                     }
-                    string sql = "update Пострадавшие set Фамилия = N'" + textBox1.Text + "', Имя = N'" + textBox2.Text + "' , Отчество = N'" + textBox3.Text + "', Адрес = N'" + textBox4.Text + "', Дата_рождения = N'" + maskedTextBox1.Text + "', Номер_телефона = N'" + maskedTextBox3.Text + "', Паспортные_данные= N'" + maskedTextBox4.Text + "', Дата_обращения= N'" + maskedTextBox2.Text + "', Пол= N'" + pol +  "' where id = " + id;
+                    string sql = "update Пострадавшие set Фамилия = N'" + textBox1.Text + "', Имя = N'" + textBox2.Text + "' , Отчество = N'" + textBox3.Text + "', Адрес = N'" + textBox4.Text + "', Дата_рождения = N'" + maskedTextBox1.Text + "', Номер_телефона = N'" + maskedTextBox3.Text + "', Паспортные_данные= N'" + maskedTextBox4.Text + "', Пол= N'" + pol +  "' where id = " + id;
                     using (SqlConnection connection = new SqlConnection(connecionString))
                     {
                         connection.Open();
