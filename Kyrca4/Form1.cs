@@ -12,7 +12,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Kyrca4
 {
-
     public partial class Form1 : Form
     {
         //Запросы
@@ -23,6 +22,9 @@ namespace Kyrca4
         string Podozr = "SELECT Подозреваемые.id,Подозреваемые.Фамилия,Подозреваемые.Имя,Подозреваемые.Отчество,Города.Название_города, Подозреваемые.Адрес,Подозреваемые.Дата_рождения,Подозреваемые.Номер_телефона,Подозреваемые.Паспортные_данные, Пол.Пол FROM Подозреваемые JOIN Пол on Пол.id=Подозреваемые.Пол JOIN Города on Города.id=Подозреваемые.Город";
         string Prest = "SELECT Виды_преступлений.id,Виды_преступлений.Статья,Виды_преступлений.Наименование,Виды_преступлений.Наказание FROM Виды_преступлений";
         string Zvan = "SELECT Звания.id,Звания.Наименование,Звания.Оклад,Звания.Обязанности,Звания.Требования FROM Звания";
+        string tfio;
+        string tvol;
+        string priv;
         //Метод обращения к запросу
         public void Using(string sql)
         {
@@ -36,9 +38,6 @@ namespace Kyrca4
                 dataGridView1.Columns[0].Visible = false;
             }
         }
-        string tfio;
-        string tvol;
-        string priv;
         public Form1(string vol, string fio)
         {
             tfio = fio;
@@ -68,42 +67,30 @@ namespace Kyrca4
         private void делаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 0;
-            string sql = Dela;
-            Using(sql);
         }
         private void сотрудникиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 1;
-            string sql = Sotr;
-            Using(sql);
         }
 
         private void пострадавшиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 2;
-            string sql = Postr;
-            Using(sql);
         }
 
         private void преступленияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 3;
-            string sql = Podozr;
-            Using(sql);
         }
 
         private void видыПреступленийToolStripMenuItem_Click(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 4;
-            string sql = Prest;
-            Using(sql);
         }
 
         private void званияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 5;
-            string sql = Zvan;
-            Using(sql);
         }
         //Выбор таблиц через ячейки
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

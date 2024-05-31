@@ -117,7 +117,7 @@ namespace Kyrca4
                     {
                         pol = "2";
                     }
-                    string sql = "update Сотрудники set Фамилия = N'" + textBox1.Text + "', Имя = N'" + textBox2.Text + "' , Отчество = N'" + textBox3.Text + "', Адрес = N'" + textBox4.Text + "', Дата_рождения = N'" + maskedTextBox1.Text + "', Номер_телефона = N'" + maskedTextBox2.Text + "', Паспортные_данные= N'" + maskedTextBox3.Text + "', Пол= N'" + pol + "' where id = " + id;
+                    string sql = "update Сотрудники set Фамилия = N'" + textBox1.Text + "', Имя = N'" + textBox2.Text + "' , Отчество = N'" + textBox3.Text + "',Звание = '" + comboBox2.SelectedValue + "', Город = '" + comboBox1.SelectedValue + "', Адрес = N'" + textBox4.Text + "', Дата_рождения = N'" + maskedTextBox1.Text + "', Номер_телефона = N'" + maskedTextBox2.Text + "', Паспортные_данные= N'" + maskedTextBox3.Text + "', Пол= N'" + pol + "' where id = " + id;
                     using (SqlConnection connection = new SqlConnection(connecionString))
                     {
                         connection.Open();
